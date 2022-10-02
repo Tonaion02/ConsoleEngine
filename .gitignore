@@ -1,0 +1,19 @@
+# Output-Dir
+output
+
+# Visual Studio Files and Folder
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
+
+# DLL FILES
+**.dll
+
+# Other Files
+src/Inspiration/**.h
+src/Inspiration/**.cpp
+
+# Directories
+Inspiration
