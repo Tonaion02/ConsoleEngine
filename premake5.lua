@@ -7,10 +7,26 @@ workspace "ConsoleEngine" --usually same of the project
 		systemversion "10.0.17763.0"
 
 
-
 project "ConsoleEngine"
     kind "ConsoleApp"
     language "C++"
+
+
+
+	-- filtering for the different systems
+	filter { "system:Windows" }
+		defines {"WINDOWS"}
+		sourceDir = "$(ProjectDir)/src"
+		
+	filter { "system:Linux" }
+		defines {"LINUX"}
+		sourceDir = "$(WorkspacePath)/src"
+		
+	filter { }
+
+
+
+
 
 	if not os.isdir("src") then os.mkdir("src") end
 
@@ -22,7 +38,7 @@ project "ConsoleEngine"
 
 	includedirs -- directory where there is .h and .cpp
 	{ 
-		"$(ProjectDir)/src"					
+		sourceDir					
 	}
     
 	libdirs -- directory for the location of the library(.lib and .dll)
@@ -43,9 +59,7 @@ project "ConsoleEngine"
 	defines { }                         -- common defines beetween all the configurations
 
 
-	-- filtering for the different systems
-	filter { "system:Windows" }
-		defines {"WINDOWS"}
+
 
 
 	-- filtering for the different configurations

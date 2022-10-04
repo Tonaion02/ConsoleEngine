@@ -10,6 +10,7 @@ class LinuxConsoleEngine : public ConsoleEngine
 {
 public:
 	LinuxConsoleEngine();
-
-	virtual int exampleMethod() override;
+	
+	virtual void write(const std::string& string) override;
+	virtual void setCursorPos(int x, int y) override;
 };

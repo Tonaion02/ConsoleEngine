@@ -10,7 +10,5 @@ class WindowConsoleEngine : public ConsoleEngine
 {
 public:
 	WindowConsoleEngine();
-
-	virtual int exampleMethod() override;
 };
 

@@ -6,6 +6,8 @@
 //#define LINUX
 
 
+
+
 #ifdef WINDOWS
 #define newConsoleEngine() new WindowConsoleEngine()
 #endif

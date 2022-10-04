@@ -1,14 +1,14 @@
-#include <cstdio>
-
-#include "ConsoleEngine/ConsoleEngine.h"
+#include "Game.h"
 
 
 
 
 
 int main()
-{
-	printf("Example: %d\n", ConsoleEngine::get().exampleMethod());
-
+{	
+	Game* game = new Game();
+	
+	game->run();
+	
 	return 0;
 }

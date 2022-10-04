@@ -13,14 +13,6 @@ WindowConsoleEngine::WindowConsoleEngine()
 	:ConsoleEngine()
 {
 }
-
-
-
-int WindowConsoleEngine::exampleMethod()
-{
-	printf("Window version!\n");
-	return forTest;
-}
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //Class WindowConsoleEngine
 //-----------------------------------------------------------------------------------------------------------------------------------------
