@@ -3,7 +3,7 @@ workspace "ConsoleEngine" --usually same of the project
 
     configurations { "Debug", "Release" }  -- all the configurations
 
-	filter "system:Windows"
+	filter "system:windows"
 		systemversion "10.0.17763.0"
 
 
@@ -14,13 +14,13 @@ project "ConsoleEngine"
 
 
 	-- filtering for the different systems
-	filter { "system:Windows" }
+	filter { "system:windows" }
 		defines {"WINDOWS"}
-		sourceDir = "$(ProjectDir)/src"
+		includedirs ("$(ProjectDir)/src")
 		
-	filter { "system:Linux" }
+	filter { "system:linux" }
 		defines {"LINUX"}
-		sourceDir = "$(WorkspacePath)/src"
+		includedirs ("$(WorkspacePath)/src")
 		
 	filter { }
 
@@ -38,7 +38,7 @@ project "ConsoleEngine"
 
 	includedirs -- directory where there is .h and .cpp
 	{ 
-		sourceDir					
+				
 	}
     
 	libdirs -- directory for the location of the library(.lib and .dll)
