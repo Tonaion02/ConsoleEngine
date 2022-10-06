@@ -4,6 +4,11 @@
 #include <thread>
 
 
+#include "ConsoleEngine/DataStructures/Surface.h"
+
+#include "ConsoleEngine/Window.h"
+#include "ConsoleEngine/Platforms/Linux/LinuxWindow.h"
+
 #include "Game.h"
 #include "ConsoleEngine/ConsoleEngine.h"
 
@@ -17,11 +22,11 @@
 Game::Game()
 	:isRunning(true)
 {
-	for(int y = 0; y < 35; y++)
+	for(int y=0;y<35;y++)
 	{
-		for(int x = 0; x < 120; x++)
-			forTest.push_back('w');
-		forTest.push_back('\n');
+		for(int x=0;x<120;x++)
+			forTest += "a";
+		forTest += "\n";
 	}
 }
 
@@ -66,8 +71,13 @@ void Game::init()
 
 void Game::generateOutput()
 {
-	ConsoleEngine::get().setCursorPos(0, 0);
-	ConsoleEngine::get().write(forTest);
+	Surface surf1(forTest);
+	Surface surf2("cccc\ncccc\ncccc\n");
+	
+	surf1.blit(surf2, {2, 1}, {2, 2});
+	
+	ConsoleEngine::get().window()->setCursorPos(Vector2i(0, 0));
+	ConsoleEngine::get().window()->write(surf1.getData());
 }
 
 

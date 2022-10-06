@@ -1,18 +1,20 @@
-#include "ConsoleEngine/Platforms/WindowConsoleEngine.h"
-
-#include <cstdio>
+#include "ConsoleEngine/DataStructures/Color.h"
 
 
 
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class Color
 //-----------------------------------------------------------------------------------------------------------------------------------------
-WindowConsoleEngine::WindowConsoleEngine()
-	:ConsoleEngine()
+Color::Color(unsigned int r, unsigned int g, unsigned int b)
+	:r(r), g(g), b(b)
 {
+	
 }
+
+
+
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class Color
 //-----------------------------------------------------------------------------------------------------------------------------------------

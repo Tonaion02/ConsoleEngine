@@ -72,3 +72,23 @@ project "ConsoleEngine"
         defines { "NDEBUG" }
         optimize "On"
 		targetdir "output/bin/release"
+
+
+
+
+
+-- Clean Function --
+newaction {
+	trigger = "clean",
+	description = "clean the software",
+	execute = function()
+		print("clean the build...")
+		os.remove("./**.mk")
+		os.remove("./**.project")
+		os.remove("./**.txt")
+		os.remove("./**.workspace")
+		os.remove("./Makefile")
+		os.rmdir("./output")
+		print("done.")
+	end
+}

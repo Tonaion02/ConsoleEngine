@@ -3,23 +3,25 @@
 #include <cstdio>
 #include <cstring>
 
-#include "ConsoleEngine/Platforms/LinuxConsoleEngine.h"
+#include "ConsoleEngine/Platforms/Linux/LinuxWindow.h"
 
 
 
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class LinuxConsoleEngine
+//Class LinuxWindow
 //-----------------------------------------------------------------------------------------------------------------------------------------
-	//printf("\033[7;31mbold red text\n");
-	//printf("\033[%d;%dH", 1, 1);
-
-
-
-LinuxConsoleEngine::LinuxConsoleEngine()
+LinuxWindow::LinuxWindow()
+	:Window()
 {
-    char  pidarg[256]; // the '--pid=' argument of tail
+	this->create();
+}
+
+
+void LinuxWindow::create()
+{
+	char  pidarg[256]; // the '--pid=' argument of tail
     pid_t child;       // the pid of the child proc
     pid_t parent;      // the pid of the parent proc
     FILE* fp;          // file to which output is redirected
@@ -42,7 +44,7 @@ LinuxConsoleEngine::LinuxConsoleEngine()
         //      tail -f /tmp/asdf.log --pid=<parent_pid>
         // This prints the lines outputed in asdf.log and exits when
         // the parent process dies.
-        execlp( "gnome-terminal", "gnome-terminal", "--geometry=120x60+10+10" ,"-x","tail","-f","/tmp/asdf.log", pidarg, NULL );
+        execlp( "gnome-terminal", "gnome-terminal", "--geometry=120x60+10+10" ,"--zoom=0.7", "-x","tail","-f","/tmp/asdf.log", pidarg, NULL );
 
         // if there's an error, print out the message and exit
         perror("execlp()");
@@ -65,17 +67,24 @@ LinuxConsoleEngine::LinuxConsoleEngine()
 
 
 
-void LinuxConsoleEngine::write(const std::string& string)
+void LinuxWindow::destroy()
 {
-	printf("\033[7;31m%s", string.c_str());	
+	
 }
 
 
 
-void LinuxConsoleEngine::setCursorPos(int x, int y)
+void LinuxWindow::write(const std::string& s)
 {
-	printf("\033[%d;%dH", x, y);
+	printf("\033[30;41m%s", s.c_str());	
+}
+
+
+
+void LinuxWindow::setCursorPos(const Vector2i& pos) 
+{
+	printf("\033[%d;%dH", pos.x, pos.y);
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class LinuxConsoleEngine
+//Class LinuxWindow
 //-----------------------------------------------------------------------------------------------------------------------------------------

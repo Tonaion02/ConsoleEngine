@@ -1,7 +1,5 @@
-#include "ConsoleEngine/ConsoleEngine.h"
+#include "ConsoleEngine/Platforms/Linux/LinuxWindow.h"
 
-#include "ConsoleEngine/PlatformSelector.h"
-#include "ConsoleEngine/Platforms/Windows/WindowConsoleEngine.h"
 #include "ConsoleEngine/Platforms/Linux/LinuxConsoleEngine.h"
 
 
@@ -9,27 +7,17 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class ConsoleEngine
+//Class LinuxConsoleEngine
 //-----------------------------------------------------------------------------------------------------------------------------------------
-ConsoleEngine& ConsoleEngine::get()
+	//printf("\033[7;31mbold red text\n");
+	//printf("\033[%d;%dH", 1, 1);
+
+
+
+LinuxConsoleEngine::LinuxConsoleEngine()
 {
-	static ConsoleEngine* instance = newConsoleEngine();
-	return *instance;
-}
-
-
-
-Window* ConsoleEngine::window()
-{
-	return windowInstance;
-}
-
-
-
-InputHandler* ConsoleEngine::inputHandler()
-{
-	return inputHandlerInstance;
+	this->windowInstance = new LinuxWindow();
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class ConsoleEngine
+//Class LinuxConsoleEngine
 //-----------------------------------------------------------------------------------------------------------------------------------------

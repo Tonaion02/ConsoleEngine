@@ -11,8 +11,8 @@ class ConsoleEngine
 public:
 	static ConsoleEngine& get();
 	
-	virtual void write(const std::string& string) = 0;
-	virtual void setCursorPos(int x, int y) = 0;
+	class Window* window();
+	class InputHandler* inputHandler();
 	/*
 	//Window methods
 	virtual void createWindow() = 0;
@@ -30,8 +30,6 @@ protected:
 	{}
 
 protected:
-	/*
-	class Window* window;
-	class InputHandler* inputHandler;
-	 */
+	class Window* windowInstance;
+	class InputHandler* inputHandlerInstance;
 };
