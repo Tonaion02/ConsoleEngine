@@ -4,13 +4,15 @@
 #include <thread>
 
 
+#include "utils/PersonalAssert.h"
+
 #include "ConsoleEngine/DataStructures/Surface.h"
 
-#include "ConsoleEngine/Window.h"
+#include "ConsoleEngine/BaseConsoleEngine/Window.h"
 #include "ConsoleEngine/Platforms/Linux/LinuxWindow.h"
 
 #include "Game.h"
-#include "ConsoleEngine/ConsoleEngine.h"
+#include "ConsoleEngine/BaseConsoleEngine/ConsoleEngine.h"
 
 
 
@@ -77,6 +79,8 @@ void Game::generateOutput()
 	surf1.blit(surf2, {2, 1}, {2, 2});
 	
 	ConsoleEngine::get().window()->setCursorPos(Vector2i(0, 0));
+	ConsoleEngine::get().window()->setColorBackground(Color(ColorId::black));
+	ConsoleEngine::get().window()->setColorForeground(Color(ColorId::red));
 	ConsoleEngine::get().window()->write(surf1.getData());
 }
 

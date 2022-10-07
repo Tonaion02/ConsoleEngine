@@ -73,6 +73,21 @@ project "ConsoleEngine"
         optimize "On"
 		targetdir "output/bin/release"
 
+	filter { }
+
+
+	-- filtering for the different systems
+	filter { "system:windows" }
+		removefiles("src/ConsoleEngine/Platforms/Linux/**.h")
+		removefiles("src/ConsoleEngine/Platforms/Linux/**.cpp")
+
+	filter { "system:linux" }
+		removefiles("src/ConsoleEngine/Platforms/Windows/**.h")
+		removefiles("src/ConsoleEngine/Platforms/Windows/**.cpp")
+		
+	filter { }
+
+
 
 
 
@@ -83,12 +98,21 @@ newaction {
 	description = "clean the software",
 	execute = function()
 		print("clean the build...")
+		
+		-- Clean the directory and files for Linux build --
 		os.remove("./**.mk")
 		os.remove("./**.project")
 		os.remove("./**.txt")
 		os.remove("./**.workspace")
 		os.remove("./Makefile")
 		os.rmdir("./output")
+		
+		-- Clean the directory and files for Windows build --
+		os.remove("./**.sln")
+		os.remove("./**.vcxproj")
+		os.remove("./**.vcxproj.filters")		
+		os.remove("./**.vcxproj.user")		
+		
 		print("done.")
 	end
 }

@@ -4,13 +4,43 @@
 
 
 
+enum ColorId
+{
+	NoneColor = -1,
+	black,
+	red,
+	green,
+	yellow,
+	blue,
+	magenta,
+	cyan,
+	white,
+	bBlack,
+	bRed,
+	bGreen,
+	bYellow,
+	bBlue,
+	bMagenta,
+	bCyan,
+	bWhite
+};
+
+
+
+
+
 class Color
 {
 public:
-	Color(unsigned int r = 0, unsigned int g = 0, unsigned int b = 0);
+	Color(ColorId idColor = ColorId::black);
+	
+	ColorId Id();
+	
+	int fgWindow() const;
+	int bgWindow() const;
+	int fgLinux() const;
+	int bgLinux() const;
 	
 protected:
-	unsigned int r;
-	unsigned int g;
-	unsigned int b;
+	ColorId id;
 };
