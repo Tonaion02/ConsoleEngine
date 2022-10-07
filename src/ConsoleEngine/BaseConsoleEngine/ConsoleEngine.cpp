@@ -1,19 +1,35 @@
+#include "ConsoleEngine/BaseConsoleEngine/ConsoleEngine.h"
+
+#include "ConsoleEngine/PlatformSelector.h"
 #include "ConsoleEngine/Platforms/Windows/WindowConsoleEngine.h"
-
-#include "ConsoleEngine/Platforms/Windows/WindowsWindow.h"
+#include "ConsoleEngine/Platforms/Linux/LinuxConsoleEngine.h"
 
 
 
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class ConsoleEngine
 //-----------------------------------------------------------------------------------------------------------------------------------------
-WindowConsoleEngine::WindowConsoleEngine()
-	:ConsoleEngine()
+ConsoleEngine& ConsoleEngine::get()
 {
-	windowInstance = new WindowsWindow();
+	static ConsoleEngine* instance = newConsoleEngine();
+	return *instance;
+}
+
+
+
+Window* ConsoleEngine::window()
+{
+	return windowInstance;
+}
+
+
+
+InputHandler* ConsoleEngine::inputHandler()
+{
+	return inputHandlerInstance;
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class ConsoleEngine
 //-----------------------------------------------------------------------------------------------------------------------------------------

@@ -1,19 +1,13 @@
-#include "ConsoleEngine/Platforms/Windows/WindowConsoleEngine.h"
-
-#include "ConsoleEngine/Platforms/Windows/WindowsWindow.h"
+#include "ConsoleEngine/BaseConsoleEngine/InputHandler.h"
 
 
 
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class InputHandler
 //-----------------------------------------------------------------------------------------------------------------------------------------
-WindowConsoleEngine::WindowConsoleEngine()
-	:ConsoleEngine()
-{
-	windowInstance = new WindowsWindow();
-}
+
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class InputHandler
 //-----------------------------------------------------------------------------------------------------------------------------------------

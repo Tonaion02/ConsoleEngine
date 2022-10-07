@@ -1,19 +1,16 @@
-#include "ConsoleEngine/Platforms/Windows/WindowConsoleEngine.h"
-
-#include "ConsoleEngine/Platforms/Windows/WindowsWindow.h"
+#include "ConsoleEngine/BaseConsoleEngine/Window.h"
 
 
 
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class Window
 //-----------------------------------------------------------------------------------------------------------------------------------------
-WindowConsoleEngine::WindowConsoleEngine()
-	:ConsoleEngine()
+Window::Window()
 {
-	windowInstance = new WindowsWindow();
+	
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Class WindowConsoleEngine
+//Class Window
 //-----------------------------------------------------------------------------------------------------------------------------------------

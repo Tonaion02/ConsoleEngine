@@ -1,10 +1,6 @@
 #pragma once
 
 
-//To use Linux version(TEMPORARY)
-//#undef WINDOWS
-//#define LINUX
-
 
 
 
