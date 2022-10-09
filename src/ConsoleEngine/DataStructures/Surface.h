@@ -23,6 +23,8 @@ public:
 	void blit(const Surface& toBlit, const Vector2i& pos);
 	//Blit another surface on this surface starting from a specific pos and copy only a specific part
 	void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit);
+	//Blit another surface on this surface starting from pos, copy only specific part(dimToBlit) and starting from posToBlit
+	void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit);
 	
 	const char* raw();
 	std::string getData() const;

@@ -13,8 +13,9 @@ public:
 
 	void run();
 	
-	class Game* get();
-	
+	static class Game* get();
+
+	bool isRunning();
 private:
 	void init();
 	void update();
@@ -22,6 +23,8 @@ private:
 	void processInput();
 	
 private:
-	bool isRunning;
+	bool running;
 	std::string forTest;
+	
+	static Game* instance;
 };

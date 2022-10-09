@@ -1,4 +1,5 @@
 #include "ConsoleEngine/Platforms/Linux/LinuxWindow.h"
+#include "ConsoleEngine/Platforms/Linux/LinuxInputHandler.h"
 
 #include "ConsoleEngine/Platforms/Linux/LinuxConsoleEngine.h"
 
@@ -9,14 +10,10 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //Class LinuxConsoleEngine
 //-----------------------------------------------------------------------------------------------------------------------------------------
-	//printf("\033[7;31mbold red text\n");
-	//printf("\033[%d;%dH", 1, 1);
-
-
-
 LinuxConsoleEngine::LinuxConsoleEngine()
 {
 	this->windowInstance = new LinuxWindow();
+	this->inputHandlerInstance = new LinuxInputHandler();
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //Class LinuxConsoleEngine

@@ -1,5 +1,7 @@
 #include "ConsoleEngine/DataStructures/Surface.h"
 
+#include "utils/PersonalAssert.h"
+
 
 
 
@@ -52,69 +54,58 @@ Vector2i Surface::getDim() const
 
 
 
-void Surface::blit(const Surface& surface)
+void Surface::blit(const Surface& toBlit)
 {
-	//Controll if the dimension of the surface toBlit is bigger of this surface
-	if(dim.x < surface.dim.x)
-		printf("Error: width");
-		
-	if(dim.y < surface.dim.y)
-		printf("Error: height");
-	//Controll if the dimension of the surface toBlit is bigger of this surface
-	
-	
-	
-	//Copy content of toBlit surface on this surface
-	for(int y = 0;y < surface.dim.y;y++)
-	{
-		//Calculate the index of line to copy and size to copy
-		int startLineToCopy = (y * (surface.dim.x + 1));
-		int sizeToCopy = surface.dim.x;
-		//Calculate the index of line to copy and size to copy
-		
-		//Calculate the starting and ending index of line on to write
-		int startLineToWrite = (y * (dim.x + 1 )); 
-		int endLineToWrite = startLineToWrite + surface.dim.x;
-		//Calculate the starting and ending index of line on to write
-		
-		//Copy the selected part of the string
-		data.replace(data.begin() + startLineToWrite, 
-					 data.begin() + endLineToWrite, 
-					surface.getData().substr(startLineToCopy, sizeToCopy));
-		//Copy the selected part of the string
-	}
-	//Copy content of toBlit surface on this surface
+	this->blit(toBlit, {0, 0}, toBlit.dim);
 }
 
 
 
 void Surface::blit(const Surface& toBlit, const Vector2i& pos)
 {
-	//Controll if the dimension of the surface toBlit is bigger of this surface
-	if(dim.x < toBlit.dim.x)
-		printf("Error: width");
-		
-	if(dim.y < toBlit.dim.y)
-		printf("Error: height");
-	//Controll if the dimension of the surface toBlit is bigger of this surface
+	this->blit(toBlit, pos, toBlit.dim);
+}
 
-	for(int y = pos.y;y < toBlit.dim.y;y++)
-	{
-		//Calculate the index of line to copy and size to copy
-		int startLineToCopy = (y * (toBlit.dim.x + 1));
-		int sizeToCopy = toBlit.dim.x;
-		//Calculate the index of line to copy and size to copy
+
+
+void Surface::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit)
+{
+	/*
+	//Controll if the dimension of the surface toBlit is bigger of this surface	
+	if(toBlit.dim.x < dimToBlit.x)
+		printf("Error: width dimToBlit");
+
+	if(toBlit.dim.y < dimToBlit.y)
+		printf("Error: height dimToBlit");
 		
+	//Controll if the dimension of the surface toBlit is bigger of this surface
+	
+	
+	
+	//Calculate the last line on to write
+	int lastLineToWrite = dimToBlit.y + pos.y;
+	//Calculate the last line on to write
+	
+	
+	
+	//Copy content of toBlit surface on this surface
+	for(int y = pos.y, yToCopy = 0;y < lastLineToWrite;y++, yToCopy++)
+	{
+		//Calculate the index of line to copy and size to copy		
+		int startLineToCopy = (yToCopy * (toBlit.dim.x + 1));
+		int sizeToCopy = dimToBlit.x;
+		//Calculate the index of line to copy and size to copy
+
 		//Calculate the starting and ending index of line on to write
 		int startLineToWrite = pos.x + y * (dim.x + 1); 
-		int endLineToWrite = startLineToWrite + toBlit.dim.x;
+		int endLineToWrite = startLineToWrite + dimToBlit.x;
 		//Calculate the starting and ending index of line on to write
-		
+
 		//Calculate the last line on to write
 		int limitLineToWrite = y * (dim.x + 1) + dim.x;
 		//Calculate the last line on to write
-		
-		//Control if the starting index of line on to write is bigger than the limit of the line
+
+		//Control if the starting index of line on to write is bigger than the limit of the line		
 		if(startLineToWrite >= limitLineToWrite)
 			return;
 		//Control if the starting index of line on to write is bigger than the limit of the line
@@ -126,35 +117,42 @@ void Surface::blit(const Surface& toBlit, const Vector2i& pos)
 			endLineToWrite = limitLineToWrite;
 		}
 		//Controll if the ending index of line on to write is bigger than the limit of the line
-		
+
 		//Copy the selected part of the string		
 		data.replace(data.begin() + startLineToWrite, 
-					 data.begin() + endLineToWrite, 
-					 toBlit.getData().substr(startLineToCopy, sizeToCopy));
+			data.begin() + endLineToWrite, 
+			toBlit.getData().substr(startLineToCopy, sizeToCopy));
 		//Copy the selected part of the string
 	}
 	//Copy content of toBlit surface on this surface
+	*/
+	
+	this->blit(toBlit, pos, dimToBlit, {0, 0});
 }
 
 
 
-void Surface::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit)
+void Surface::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit)
 {
 	//Controll if the dimension of the surface toBlit is bigger of this surface	
+	/*
 	if(toBlit.dim.x < dimToBlit.x)
 		printf("Error: width dimToBlit");
 
 	if(toBlit.dim.y < dimToBlit.y)
 		printf("Error: height dimToBlit");
+	*/
+	ASSERT(dimToBlit.x < dim.x);
+	ASSERT(dimToBlit.y < dim.y);
+	
+	ASSERT(posToBlit.x < dimToBlit.x && posToBlit.x >= 0);
+	ASSERT(posToBlit.y < dimToBlit.y && posToBlit.y >= 0);
+	
+	ASSERT(pos.x < dim.x && pos.x >= 0);
+	ASSERT(pos.y < dim.y && pos.y >= 0);
 	//Controll if the dimension of the surface toBlit is bigger of this surface
 	
-	/*
-	if(dim.x < toBlit.getDim().x)
-		printf("Error: width");
-		
-	if(dim.y < toBlit.getDim().y)
-		printf("Error: height");
-	*/
+	
 	
 	//Calculate the last line on to write
 	int lastLineToWrite = dimToBlit.y + pos.y;
@@ -163,10 +161,10 @@ void Surface::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& d
 	
 	
 	//Copy content of toBlit surface on this surface
-	for(int y = pos.y;y < lastLineToWrite;y++)
+	for(int y = pos.y, yToCopy = posToBlit.y;y < lastLineToWrite;y++, yToCopy++)
 	{
 		//Calculate the index of line to copy and size to copy		
-		int startLineToCopy = (y * (toBlit.dim.x + 1));
+		int startLineToCopy = (yToCopy * (toBlit.dim.x + 1)) + posToBlit.x;
 		int sizeToCopy = dimToBlit.x;
 		//Calculate the index of line to copy and size to copy
 

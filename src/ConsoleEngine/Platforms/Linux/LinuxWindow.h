@@ -1,4 +1,4 @@
-#pragma onceclTabCtrl
+#pragma once
 
 #include "ConsoleEngine/BaseConsoleEngine/Window.h"
 
@@ -19,5 +19,4 @@ public:
 	virtual void setCursorPos(const Vector2i& pos) override;
 	
 private:
-	
 };
