@@ -88,8 +88,7 @@ void Game::generateOutput()
 	Surface surf1(forTest);
 	Surface surf2("cccc\ncccc\ncccc\n");
 	
-	//surf1.blit(surf2, {119, 2}, {1, 1});
-	surf2.blit(surf1);
+	surf1.blit(surf2, {119, 2}, {1, 2});
 
 	ConsoleEngine::get().window()->setCursorPos(Vector2i(0, 0));
 	ConsoleEngine::get().window()->setColorBackground(Color(ColorId::black));
