@@ -11,8 +11,9 @@
 //Class LinuxConsoleEngine
 //-----------------------------------------------------------------------------------------------------------------------------------------
 LinuxConsoleEngine::LinuxConsoleEngine()
+	:ConsoleEngine()
 {
-	this->windowInstance = new LinuxWindow();
+	this->windowInstance = new LinuxWindow(this->dimWindow);
 	this->inputHandlerInstance = new LinuxInputHandler();
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------

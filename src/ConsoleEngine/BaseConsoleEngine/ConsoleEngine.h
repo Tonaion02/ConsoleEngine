@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "utils/Math/Vector2i.h"
+
 
 
 
@@ -26,10 +28,10 @@ public:
 	virtual void command();
 	*/
 protected:
-	ConsoleEngine()
-	{}
+	ConsoleEngine();
 
 protected:
 	class Window* windowInstance;
 	class InputHandler* inputHandlerInstance;
+	Vector2i dimWindow;
 };

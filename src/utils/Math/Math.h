@@ -9,6 +9,9 @@
 
 
 
+
+
+
 //Constant value
 const float Pi = 3.1415926535f;
 const float Pi2 = Pi * 2;
@@ -37,5 +40,4 @@ inline float ToRadians(float degree) { return degree * Pi / 180.0f; }
 
 //Method for random generator of numbers
 void setRandomGenerator(unsigned int seed);
-//int random();
 //Method for random generator of numbers

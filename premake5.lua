@@ -54,7 +54,7 @@ project "ConsoleEngine"
 	files { "src/**.h", "src/**.cpp" } -- source files
 	removefiles { "src/ToDo.h" }       -- files to exclude from compilation
 
-	removefiles { "src/LinuxLauncher.cpp" } --exclude the LinuxLauncher from all project
+	removefiles { "src/ConsoleEngine/Platforms/Linux/LinuxLauncher.cpp" } --exclude the LinuxLauncher from all project
 
 	objdir "output/obj"                -- directory where object and other intermediate files should be placed when building a project
 

@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "utils/Math/Vector2i.h"
+#include "utils/Math/Vector2.h"
 #include "ConsoleEngine/DataStructures/Surface.h"
 #include "ConsoleEngine/DataStructures/Color.h"
 
@@ -13,7 +13,7 @@
 class Window
 {
 public:
-	Window();
+	Window(const Vector2i& dim);
 
 	//Create the window
 	virtual void create() = 0;
@@ -28,8 +28,11 @@ public:
 	//Set position of cursor
 	virtual void setCursorPos(const Vector2i& pos) = 0;
 	//virtual void write(const std::string& s, const Vector2i& pos) = 0; //Write direct on screen a string in a pos
-	//virtual void blit(const Surface& surface) = 0; //
-	//virtual void draw() = 0; //Draw the screen buffer
+	
+	//Draw on screen buffer surface another surface
+	virtual void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit) = 0; 
+	//Draw the screen buffer
+	virtual void draw() = 0;
 protected:
 	Surface screenBuffer;
 	Color background, foreground;

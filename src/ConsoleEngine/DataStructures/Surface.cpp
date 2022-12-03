@@ -142,8 +142,8 @@ void Surface::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& d
 	if(toBlit.dim.y < dimToBlit.y)
 		printf("Error: height dimToBlit");
 	*/
-	ASSERT(dimToBlit.x < dim.x);
-	ASSERT(dimToBlit.y < dim.y);
+	ASSERT(dimToBlit.x <= dim.x);
+	ASSERT(dimToBlit.y <= dim.y);
 	
 	ASSERT(posToBlit.x < dimToBlit.x && posToBlit.x >= 0);
 	ASSERT(posToBlit.y < dimToBlit.y && posToBlit.y >= 0);
@@ -190,10 +190,20 @@ void Surface::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& d
 		}
 		//Controll if the ending index of line on to write is bigger than the limit of the line
 
-		//Copy the selected part of the string		
-		data.replace(data.begin() + startLineToWrite, 
-			data.begin() + endLineToWrite, 
-			toBlit.getData().substr(startLineToCopy, sizeToCopy));
+//Save for the rawBlit version
+//		//Copy the selected part of the string		
+//		data.replace(data.begin() + startLineToWrite, 
+//			data.begin() + endLineToWrite, 
+//			toBlit.getData().substr(startLineToCopy, sizeToCopy));
+//		//Copy the selected part of the string 
+		
+		//Copy the selected part of the string
+		for(int x=0;x<sizeToCopy;x++)
+		{
+			auto c = toBlit.getData()[x + startLineToCopy];
+			if(c != ' ')
+				data[x + startLineToWrite] = c;
+		}
 		//Copy the selected part of the string
 	}
 	//Copy content of toBlit surface on this surface
