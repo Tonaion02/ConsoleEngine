@@ -12,9 +12,7 @@ int main()
 {
 	std::string optionsFile = "data/options.xml";
 	std::vector<std::string> lines = getLines(optionsFile);
-	
-	//std::vector<XMLvariab> xmlVariables = getXMLvariables(lines);
-	//XMLvariab options = xmlVariables[0];
+
 	std::vector<XMLvariab> xmlVariables = getXMLvariables(lines);
 	XMLvariab windowOptions = xmlVariables[0];
 	std::string x = windowOptions.getValue("x");

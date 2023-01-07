@@ -36,4 +36,5 @@ public:
 protected:
 	Surface screenBuffer;
 	Color background, foreground;
+	Vector2i dim;
 };
