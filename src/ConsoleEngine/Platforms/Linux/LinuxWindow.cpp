@@ -64,17 +64,17 @@ void LinuxWindow::setCursorPos(const Vector2i& pos)
 
 
 
-void LinuxWindow::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit)
-{
-	screenBuffer.blit(toBlit, pos, dimToBlit, posToBlit);
-} 
-
-
-
-void LinuxWindow::draw()
-{
-	this->write(screenBuffer.raw());
-}
+//void LinuxWindow::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit)
+//{
+//	screenBuffer.blit(toBlit, pos, dimToBlit, posToBlit);
+//} 
+//
+//
+//
+//void LinuxWindow::draw()
+//{
+//	this->write(screenBuffer.raw());
+//}
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //Class LinuxWindow
 //-----------------------------------------------------------------------------------------------------------------------------------------

@@ -9,7 +9,7 @@
 class WindowsWindow : public Window
 {
 public:
-	WindowsWindow();
+	WindowsWindow(const Vector2i& dim);
 	
 	virtual void create() override; //Create the window
 	virtual void destroy() override; //Destroy the window
@@ -21,10 +21,13 @@ public:
 	//Set color for foreground
 	virtual void setColorForeground(const Color& color) {};
 
-	//Draw on screen buffer surface another surface
-	virtual void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit) {};
-	//Draw the screen buffer
-	virtual void draw() {};
+	//Set visibility of the cursor of console
+	void setCursorVisibility(bool visible);
+
+	////Draw on screen buffer surface another surface
+	//virtual void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit);
+	////Draw the screen buffer
+	//virtual void draw();
 
 protected:
 	HANDLE handleWindow;

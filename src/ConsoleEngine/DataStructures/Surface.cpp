@@ -9,13 +9,15 @@
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //Class Surface
 //-----------------------------------------------------------------------------------------------------------------------------------------
-Surface::Surface(const std::string& data)
+Surface::Surface(const std::string& data, const Vector2i& dim)
 	:data(data)
 {
 	//Calculate the size of the surface searching the '\n' for the end of each row
-	dim.x = data.find_first_of('\n');
-	dim.y = data.size() / (dim.x + 1);
+	//dim.x = data.find_first_of('\n');
+	//dim.y = data.size() / (dim.x + 1);
 	//Calculate the size of the surface searching the '\n' for the end of each row
+
+	this->dim = dim;
 }
 
 
@@ -27,7 +29,7 @@ Surface::Surface(const Vector2i& dim)
 	{
 		for(int x=0;x<dim.x;x++)
 			data += " ";
-		data += "\n";
+		//data += "\n";
 	}
 }
 
@@ -164,17 +166,20 @@ void Surface::blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& d
 	for(int y = pos.y, yToCopy = posToBlit.y;y < lastLineToWrite;y++, yToCopy++)
 	{
 		//Calculate the index of line to copy and size to copy		
-		int startLineToCopy = (yToCopy * (toBlit.dim.x + 1)) + posToBlit.x;
+		//int startLineToCopy = (yToCopy * (toBlit.dim.x + 1)) + posToBlit.x;
+		int startLineToCopy = (yToCopy * (toBlit.dim.x)) + posToBlit.x;
 		int sizeToCopy = dimToBlit.x;
 		//Calculate the index of line to copy and size to copy
 
 		//Calculate the starting and ending index of line on to write
-		int startLineToWrite = pos.x + y * (dim.x + 1); 
+		//int startLineToWrite = pos.x + y * (dim.x + 1); 
+		int startLineToWrite = pos.x + y * (dim.x);
 		int endLineToWrite = startLineToWrite + dimToBlit.x;
 		//Calculate the starting and ending index of line on to write
 
 		//Calculate the last line on to write
-		int limitLineToWrite = y * (dim.x + 1) + dim.x;
+		//int limitLineToWrite = y * (dim.x + 1) + dim.x;
+		int limitLineToWrite = y * (dim.x) + dim.x;
 		//Calculate the last line on to write
 
 		//Control if the starting index of line on to write is bigger than the limit of the line		

@@ -19,8 +19,8 @@ public:
 	virtual void setColorBackground(const Color& color) override;
 	virtual void setColorForeground(const Color& color) override;
 	virtual void setCursorPos(const Vector2i& pos) override;
-	virtual void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit) override; 
-	virtual void draw() override;
+	//virtual void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit) override; 
+	//virtual void draw() override;
 	
 private:
 };

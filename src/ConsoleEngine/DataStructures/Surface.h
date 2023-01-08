@@ -13,7 +13,7 @@ class Surface
 public:
 	Surface() {}; //To delete
 	//Create a surface copying content from string
-	Surface(const std::string& data);
+	Surface(const std::string& data, const Vector2i& dim);
 	//Create a blank surface o with dim sizes
 	Surface(const Vector2i& dim); 
 	

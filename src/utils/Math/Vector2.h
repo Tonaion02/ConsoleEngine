@@ -63,7 +63,7 @@ public:
 
 	Vector2<T> operator-() const
 	{
-		return Vector2<T>(-this.x, -this.y);
+		return Vector2<T>( -this->x, -this->y);
 	}
 
 	//Composed Assignment operator

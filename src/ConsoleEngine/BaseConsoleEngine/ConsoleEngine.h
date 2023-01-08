@@ -33,5 +33,5 @@ protected:
 protected:
 	class Window* windowInstance;
 	class InputHandler* inputHandlerInstance;
-	Vector2i dimWindow;
+	//Vector2i dimWindow;
 };

@@ -30,9 +30,9 @@ public:
 	//virtual void write(const std::string& s, const Vector2i& pos) = 0; //Write direct on screen a string in a pos
 	
 	//Draw on screen buffer surface another surface
-	virtual void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit) = 0; 
+	void blit(const Surface& toBlit, const Vector2i& pos, const Vector2i& dimToBlit, const Vector2i& posToBlit); 
 	//Draw the screen buffer
-	virtual void draw() = 0;
+	void draw();
 protected:
 	Surface screenBuffer;
 	Color background, foreground;

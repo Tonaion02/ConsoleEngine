@@ -24,11 +24,11 @@ ConsoleEngine& ConsoleEngine::get()
 
 ConsoleEngine::ConsoleEngine() 
 {
-	std::vector<std::string> lines = getLines("data/options.xml");
-	std::vector<XMLvariab> xmlVariables = getXMLvariables(lines);
-	XMLvariab windowOptions = xmlVariables[0];
-	dimWindow = Vector2i(stoi(windowOptions.getValue("width")), 
-				   stoi(windowOptions.getValue("heigth"))-1);
+	//std::vector<std::string> lines = getLines("data/options.xml");
+	//std::vector<XMLvariab> xmlVariables = getXMLvariables(lines);
+	//XMLvariab windowOptions = xmlVariables[0];
+	//dimWindow = Vector2i(stoi(windowOptions.getValue("width")), 
+	//			   stoi(windowOptions.getValue("heigth"))-1);
 }
 
 
