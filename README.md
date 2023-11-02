@@ -5,7 +5,7 @@ You can build the project for these plaforms:
 - Windows(Visual Studio) 
 - Linux(Visual Studio Code)
 
-The build system is premake5
+The build system is premake5.
 	
 ### Requirements:
 To run ConsoleEngine in Linux, you need to compile in Debug Mode the ConsoleEgine in CodeLite and
