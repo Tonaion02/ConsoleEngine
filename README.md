@@ -2,8 +2,8 @@
 ## An engine for games and app that runs in console
 
 You can build the project for these plaforms:
-	* Windows(Visual Studio) 
- 	* Linux(Visual Studio Code)
+	- Windows(Visual Studio) 
+ 	- Linux(Visual Studio Code)
 	
 ###Requirements:
 To run ConsoleEngine in Linux, you need to compile in Debug Mode the ConsoleEgine in CodeLite and
